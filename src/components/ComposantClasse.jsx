@@ -1,15 +1,12 @@
 import React, { Component, Fragment } from 'react'
 
-export default class ComposantClasse extends Component {
-
-    handleClick = () => {
-        this.props.incrementer()
-    }
+export class ComposantClasse extends Component {
 
     render() {
         return (
             <Fragment>
-                <button onClick={this.handleClick}>{this.props.texte}</button>
+                <p>{this.props.compteur}</p>
+                <button onClick={this.props.incrementer}>{this.props.texte}</button>
             </Fragment>
         )
     }
