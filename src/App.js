@@ -1,19 +1,24 @@
-import { Fragment } from 'react';
-import './App.css';
-import { ComposantClasse } from './components/ComposantClasse';
+import React, { Component, Fragment } from 'react'
+import ComposantClasse from './components/ComposantClasse'
 
-function App() {
-  return (
-    <Fragment>
-      <ComposantClasse />
-      <ComposantClasse />
-      <ComposantClasse />
-      <ComposantClasse />
-      <ComposantClasse />
-      <ComposantClasse />
-      <ComposantClasse />
-    </Fragment>
-  );
+export default class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      compteur : 0
+    }
+  }
+
+  incrementerCompteur = () => {
+    this.setState({compteur : ++this.state.compteur})
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <p>{this.state.compteur}</p>
+        <ComposantClasse incrementer={this.incrementerCompteur} texte={"Clique moi!"}/>
+      </Fragment>
+    )
+  }
 }
-
-export default App;

@@ -1,27 +1,15 @@
 import React, { Component, Fragment } from 'react'
 
-export class ComposantClasse extends Component {
-    // pour utiliser le state:
-    constructor(props) {
-        super(props)
-        this.state = {
-            utilisateur: {
-                nom: 'Timio',
-                prenom: 'Thomas'
-            }
-        }
-    }
+export default class ComposantClasse extends Component {
 
-    modifier = () => {
-        let newUtilisateur = {...this.state.utilisateur, prenom: 'Jacques'}
-        this.setState({utilisateur : newUtilisateur})
+    handleClick = () => {
+        this.props.incrementer()
     }
 
     render() {
         return (
             <Fragment>
-                <p>{this.state.utilisateur.nom}, {this.state.utilisateur.prenom}</p>
-                <button onClick={this.modifier}>Clique</button>
+                <button onClick={this.handleClick}>{this.props.texte}</button>
             </Fragment>
         )
     }
