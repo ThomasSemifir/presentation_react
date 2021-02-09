@@ -44,7 +44,7 @@ const ComposantFonction = (props) => {
 
 Il est possible de raccourcir la récupération des props:
 ```jsx
-const ComposantFonction = (incrementer, texte) => {
+const ComposantFonction = ({incrementer, texte}) => {
     ...
     <p>{texte}</p>
     ...
@@ -92,7 +92,7 @@ Dans un composant stateless, cela s'écrit:
 const [valeur, setValeur] = useState(initialState)
 ```
 
-useState nous fournit en réalité deux éléments, que nous récupérons par décomposition:
+useState nous fournit en réalité deux éléments, que nous récupérons :
 + state: permet d'appeler l'élément établi en tant que state
 + setState: permet de modifier le state établi
 
@@ -104,3 +104,64 @@ Exemple:
         setCompteur(++compteurTmp)
     }
 ```
+
+### Autres hooks
+D'autres hooks existent nativement dans react:
++ useEffect
++ useContext
++ useReducer
+
+Nous aborderons useEffect et useContext plus loin.
+
+## Choix dynamique du composant
+
+Cela permet d'appeler des comportements différents sur un même composant.
+
+Exemple:
+
+**Dans App.js:**
+```jsx
+import './App.css';
+import { Parent } from './components/Parent'
+
+function App() {
+  return (
+    <div className="App">
+      <Parent type="premier" val={"Thomas"} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+**Dans Parent.jsx:**
+```jsx
+let obj = {
+    premier(props) {
+        return <div>Nom: {props.val}</div>;
+    },
+    second(props) {
+        return <div>Prenom: {props.val}</div>;
+    }
+}
+
+export function Parent(props) {
+    //rappel: ici nous utilisons la fonctionnalité js qui permet d'utiliser les objets comme des dictionnaires: obj[key]
+    const Choice = obj[props.type];
+    return <Choice val={props.val} />
+}
+```
+
+En fonction du prop que nous passons à Parent dans "type", ce sera le premier ou le second choix qui sera sélectionné
+
+## Exercice:
+
+Créez un composant qui renvoie en HTML:
+<h1>Coucou à tous!</h1>
+
+avec le style:
+    background-color: red
+    text-align: center
+
+Passez le style une fois dans le fichier App.css, puis une fois par une variable dans App.js

@@ -1,22 +1,13 @@
-import React, { Fragment, useState } from 'react'
-import {ComposantClasse} from './components/ComposantClasse'
-import { ComposantFonction } from './components/ComposantFonction'
+import React from 'react'
+import { Parent } from './components/Parent'
 
-
-export default function App() {
-  const [compteur, setCompteur] = useState(0)
-  const [texte, setTexte] = useState("Clique ici!")
-
-  const incrementerCompteur = () => {
-      let compteurTmp = compteur;
-      setCompteur(++compteurTmp)
-  }
-
-    return (
-      <Fragment>
-        <p>{compteur}</p>
-        <ComposantFonction incrementer={incrementerCompteur} texte={texte}/>
-        <ComposantClasse incrementer={incrementerCompteur} texte={texte}/>
-      </Fragment>
-    )
+const App = () => {
+  return (
+    <div>
+      <Parent type="premier" val={"Thomas"} />
+      <Parent type="second" val={"Timio"} />
+    </div>
+  )
 }
+
+export default App

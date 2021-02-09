@@ -23,11 +23,16 @@ export class ComposantClasse extends Component {
 
 ## utilisation du state:
 
+
+Pour utiliser le state dans un composant parent, il est indispensable de déclarer son constructeur afin de le lui attribuer.
+
+Le constructeur doit obligatoirement faire appel au constructeur de la classe parent avec super afin de bénéficier de tous les attributs.
+
 ```jsx
 import React, { Component, Fragment } from 'react'
 
 export class ComposantClasse extends Component {
-    // pour utiliser le state:
+    //le state se déclare au sein du constructeur de la classe
     constructor(props){
         super(props)
         this.state = {
@@ -48,6 +53,11 @@ export class ComposantClasse extends Component {
 ```
 
 ### Mise à jour du state:
+
+La mise à jour du state ne se fait JAMAIS par l'attribution d'une valeur directement; cela ne provoque pas de nouveau rendu du component.
+
+Il faut utiliser la méthode **setState()** qui est fournie par React.
+
 
 ```jsx
 import React, { Component, Fragment } from 'react'
@@ -83,6 +93,8 @@ export class ComposantClasse extends Component {
 ## Immutabilité et affectation / décomposition
 ```js
 let utilisateur = {nom: 'Timio', prenom:'Thomas'};
+/* A éviter pour assurer l'immutabilité:
+utilisateur.nom = 'Dupont';*/
 console.log(utilisateur);
 let newUtilisateur = Object.assign({}, utilisateur, {prenom: 'Jacques'});
 console.log(newUtilisateur)
@@ -166,7 +178,6 @@ import React, { Component } from 'react'
 
 export default class ComposantClasse extends Component {
 
-    c
 
     render() {
         return (
@@ -216,14 +227,11 @@ import React, { Component, Fragment } from 'react'
 
 export default class ComposantClasse extends Component {
 
-    handleClick = () => {
-        this.props.incrementer()
-    }
-
     render() {
         return (
             <Fragment>
-                <button onClick={this.handleClick}>Clique moi!</button>
+              //l'event onClick sur le bouton appellera la méthode passée en props appartenant au composant parent
+              <button onClick={this.props.incrementer}>Clique moi!</button>
             </Fragment>
         )
     }

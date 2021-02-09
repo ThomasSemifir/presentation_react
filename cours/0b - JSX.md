@@ -2,6 +2,8 @@
 
 ## Présentation
 
+JSX signifie JavaScript XML.
+
 Pour créer des components React, il faut utiliser la structure suivante:
 
 ```js
@@ -39,7 +41,7 @@ Pour utiliser la puissance de React, il ne faut pas modifier le fichier index.js
 Toutes les balises HTML sont reconnues nativement par React, qui permet de les utiliser de manière indifférente en jsx
 Une différence cependant :
 
-LES BALISES AUTO-FERMANTES DOIVENT ETRE IMPERATIVEMENT FERMEES!:
+LES BALISES AUTO-FERMANTES DOIVENT ETRE IMPERATIVEMENT FERMEES!
 
 Exemple:
 ```jsx
