@@ -1,12 +1,11 @@
-import React from 'react'
-import { Parent } from './components/Parent'
+import React, { Fragment, useState } from 'react'
+import {AjoutUtilisateur} from './components/AjoutUtilisateur'
+import { ListeUtilisateurs } from './components/ListeUtilisateur'
 
-const App = () => {
+ const App = () => {
+
   return (
-    <div>
-      <Parent type="premier" val={"Thomas"} />
-      <Parent type="second" val={"Timio"} />
-    </div>
+    <ListeUtilisateurs />
   )
 }
 
