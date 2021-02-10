@@ -1,13 +1,11 @@
 import React, { Fragment, useState } from 'react'
-import {BoiteReception} from './components/BoiteReception'
-
+import {ComposantCycles} from './components/ComposantCycles'
 
 const App = () => {
-  const [isLogged, setIsLogged] = useState(false)
 
   return (
     <Fragment>
-      <BoiteReception messagesNonLus={""}/>
+
     </Fragment>
   )
 }
