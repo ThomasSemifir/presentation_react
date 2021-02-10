@@ -10,9 +10,13 @@ export const AjoutUtilisateur = (props) => {
     const handleChangePrenom = (event) => {
         setUtilisateur({ ...utilisateur, prenom: event.target.value })
     }
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); props.ajouterUtilisateur(utilisateur) 
+    }
     return (
         <Fragment>
-            <form onSubmit={(event) => { event.preventDefault(); props.ajouterUtilisateur(utilisateur) }}>
+            <form onSubmit={(event) => { handleSubmit(event)}}>
                 <div>
                     <label >Nom:
                 <input name="nom" onChange={(event) => handleChangeNom(event)} defaultValue={""} />
