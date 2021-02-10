@@ -1,12 +1,14 @@
-import React from 'react'
-import { ListeUtilisateurs } from './components/ListeUtilisateur'
-import { ComposantVerifie } from './components/ComposantVerifie'
+import React, { Fragment, useState } from 'react'
+import {BoiteReception} from './components/BoiteReception'
 
- const App = () => {
+
+const App = () => {
+  const [isLogged, setIsLogged] = useState(false)
 
   return (
-    // <ComposantVerifie value={"Coucou"}/>
-    <ListeUtilisateurs />
+    <Fragment>
+      <BoiteReception messagesNonLus={""}/>
+    </Fragment>
   )
 }
 
