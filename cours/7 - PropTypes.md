@@ -1,3 +1,13 @@
+# PropTypes
+
+Ils permettent de rajouter une couche de débugage supplémentaire.
+Ils n'empêchent pas l'exécution du code, mais permettent de connaître plus facilement d'où vient une erreur.
+
+Ainsi, si nous reprenons l'exercice du formulaire:
+
+Il faut tout d'abord installer le package prop-types
+
+```jsx
 import React, { Fragment, useState } from 'react'
 import propTypes from 'prop-types'
 
@@ -35,6 +45,12 @@ export const AjoutUtilisateur = (props) => {
     )
 }
 
+// la vérification des props se fait en dehors du corps du component
 AjoutUtilisateur.propTypes = {
     ajouterUtilisateur: propTypes.func.isRequired
 }
+```
+
+Les types peuvent être vérifiés, attention à la dénomination, function n'existe pas, il faut utiliser "func"
+
+Le isRequired permet de vérifier que la prop concernée a bien été passée

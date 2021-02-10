@@ -11,7 +11,7 @@ export const ListeUtilisateurs = () => {
     return (
         <Fragment>
             {console.log(ListeUtilisateurs)}
-            <AjoutUtilisateur ajouterUtilisateur={handleAjoutUtilisateur} />
+            <AjoutUtilisateur />
         </Fragment>
     )
 }
