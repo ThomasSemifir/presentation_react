@@ -1,13 +1,12 @@
-import React, { Fragment, useState } from 'react'
-import {ComposantCycles} from './components/ComposantCycles'
+import React, { Fragment } from 'react'
+import { Routing } from './components/commons/Routing'
+
 
 const App = () => {
-
   return (
-    <Fragment>
-
-    </Fragment>
+    <Routing />
   )
 }
 
-export default App
+
+export default App;
